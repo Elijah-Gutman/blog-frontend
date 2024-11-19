@@ -5,11 +5,9 @@ import { Footer } from "./Footer";
 function App() {
   return (
     <div>
-      
-        <Header />
-        <PostsPage />
-        <Footer year={2024} />
-      
+      <Header />
+      <PostsPage />
+      <Footer year={2024} />
     </div>
   );
 }

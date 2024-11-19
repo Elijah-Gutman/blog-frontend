@@ -13,10 +13,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  margin: 0;
-  font-family: system-ui;
-}
 
 header {
   background-color: black;
@@ -52,12 +48,12 @@ footer {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1em;
 }
 
 .card img{
-  width:100%;
+  width: 100px;
   height: 300px;
   object-fit: cover;
 }
