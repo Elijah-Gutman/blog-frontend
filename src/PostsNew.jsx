@@ -1,7 +1,9 @@
 export function PostsNew(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.onCreate();
+    const params = new FormData(event.target);
+    props.onCreate(params);
+    event.target.reset();
   };
   return (
     <div id="posts-new">

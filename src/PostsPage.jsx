@@ -16,8 +16,13 @@ export function PostsPage() {
       setPosts(response.data);
     });
   };
-  const handleCreate = () => {
+  const handleCreate = (params) => {
     console.log("handleCreate");
+    axios.post("http://localhost:3000/posts.json", params).then((response) => {
+      console.log(response.data);
+      const newPost = response.data;
+      setPosts([...posts, newPost]);
+    });
   };
   const handleShow = (post) => {
     console.log("handleShow", post);
