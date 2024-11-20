@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Modal } from "./modal";
 import { PostsIndex } from "./PostsIndex";
 import { PostsNew } from "./PostsNew";
+import { PostsShow } from "./PostsShow";
 
 export function PostsPage() {
   const [posts, setPosts] = useState([]); // instead of: let posts = [];
@@ -15,23 +16,23 @@ export function PostsPage() {
       setPosts(response.data);
     });
   };
+  const handleCreate = () => {
+    console.log("handleCreate");
+  };
   const handleShow = (post) => {
     console.log("handleShow", post);
     setIsPostsShowVisible(true);
     setCurrentPost(post);
   };
+
   useEffect(handleIndex, []); //instead of handleIndex();
 
   return (
     <main>
-      <PostsNew />
+      <PostsNew onCreate={handleCreate} />
       <PostsIndex posts={posts} onShow={handleShow} />
       <Modal show={isPostsShowVisible} onClose={() => setIsPostsShowVisible(false)}>
-        <h2>{currentPost.title}</h2>
-        <p>Body: {currentPost.body}</p>
-        <p>
-          Image: <img src={currentPost.image} alt="" />
-        </p>
+        <PostsShow post={currentPost} />
       </Modal>
     </main>
   );
