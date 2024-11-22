@@ -33,7 +33,7 @@ export function PostsPage() {
   useEffect(handleIndex, []); //instead of handleIndex();
 
   return (
-    <main>
+    <main className="container">
       <PostsNew onCreate={handleCreate} />
       <PostsIndex posts={posts} onShow={handleShow} />
       <Modal show={isPostsShowVisible} onClose={() => setIsPostsShowVisible(false)}>
